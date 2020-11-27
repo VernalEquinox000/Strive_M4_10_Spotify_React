@@ -1,8 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Home from "./components/Home";
-import AlbumPage from "./components/AlbumPage";
-import ArtistPage from "./components/ArtistPage";
+//import AlbumPage from "./components/AlbumPage";
+//import ArtistPage from "./components/ArtistPage";
 import NavBar from "./components/NavBar";
 import Playlists from "./components/Playlists"
 import Footer from "./components/Footer"
@@ -13,9 +13,7 @@ function App() {
     <Router>
       <NavBar />
       <Playlists />
-      <Route path="/" exact render={(props) => <Home {...props} />} />
-      <Route path="/albumpage" render={(props) => <ArtistPage {...props} />} />
-      <Route path="/artistpage:artistId" render={(props) => <AlbumPage {...props} />} />
+      <Route path="/" exact component = {Home}/>
       <Footer/>
     </Router>
     

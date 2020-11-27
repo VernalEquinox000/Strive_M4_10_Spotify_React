@@ -1,7 +1,6 @@
 body {
   font-family: "Circular Spotify Tx T Bold";
   font-size: 14px;
-  background-color: black;
 }
 
 .vertical-nav {
@@ -46,10 +45,9 @@ body {
   height: 3.09rem;
 }
 
-.nav-pills .nav-link.active,
-.nav-pills .show > .nav-link {
+#active {
+  background: #282828;
   color: #fff !important;
-  background-color: #363b41;
 }
 
 .icon {
@@ -61,6 +59,7 @@ body {
 nav h1 {
   color: #b3b3b3 !important;
 }
+
 .nav-header {
   font-size: 12px;
   font-weight: 700;
@@ -124,9 +123,11 @@ nav h1 {
   -ms-flex-negative: 0;
   flex-shrink: 0;
 }
+
 .spoticon-heart-active-16::before {
   font-size: 16px;
 }
+
 [class*=" spoticon-"]:before,
 [class^="spoticon-"]:before {
   font-family: glue1-spoticon;
@@ -181,7 +182,7 @@ header i {
   background-position: center;
 }
 
-.upgrade + .dropdown .dropdown-toggle:after {
+.upgrade+.dropdown .dropdown-toggle:after {
   position: relative;
   bottom: 8px;
 }
@@ -219,27 +220,21 @@ header i {
 }
 
 .albumHead {
-  background: hsla(339, 100%, 55%, 1);
+  /*background: hsla(339, 100%, 55%, 1);
 
-  background: linear-gradient(
-    90deg,
-    hsla(339, 100%, 55%, 1) 0%,
-    hsla(197, 100%, 64%, 1) 100%
-  );
+  background: linear-gradient(90deg,
+      hsla(339, 100%, 55%, 1) 0%,
+      hsla(197, 100%, 64%, 1) 100%);
 
-  background: -moz-linear-gradient(
-    90deg,
-    hsla(339, 100%, 55%, 1) 0%,
-    hsla(197, 100%, 64%, 1) 100%
-  );
+  background: -moz-linear-gradient(90deg,
+      hsla(339, 100%, 55%, 1) 0%,
+      hsla(197, 100%, 64%, 1) 100%);
 
-  background: -webkit-linear-gradient(
-    90deg,
-    hsla(339, 100%, 55%, 1) 0%,
-    hsla(197, 100%, 64%, 1) 100%
-  );
+  background: -webkit-linear-gradient(90deg,
+      hsla(339, 100%, 55%, 1) 0%,
+      hsla(197, 100%, 64%, 1) 100%);
 
-  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#ff1b6b", endColorstr="#45caff", GradientType=1 );
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#ff1b6b", endColorstr="#45caff", GradientType=1); */
 }
 
 main {
@@ -255,26 +250,6 @@ main .container .row img:first-of-type {
   height: 230px;
 }
 
-@-webkit-keyframes color-change-2x {
-  0% {
-    background: rgba(255, 27, 107, 1);
-  }
-
-  100% {
-    background: rgba(69, 202, 255, 1);
-  }
-}
-
-@keyframes color-change-2x {
-  0% {
-    background: rgba(255, 27, 107, 1);
-  }
-
-  100% {
-    background: rgba(69, 202, 255, 1);
-  }
-}
-
 .album {
   margin: 10px;
 }
@@ -282,11 +257,16 @@ main .container .row img:first-of-type {
 .album div:first-of-type {
   margin-top: 50px;
   font-weight: 500;
+  color: rgba(65, 215, 0, 1);
+  -webkit-text-stroke: .5px black;
+
 }
 
 .album div:nth-of-type(2) {
   font-size: 50px;
   font-weight: 600;
+  color: rgba(65, 215, 0, 1);
+  -webkit-text-stroke: .9px black;
 }
 
 i.far.fa-play-circle,
@@ -314,99 +294,61 @@ thead tr th {
   background-color: rgba(0, 0, 0, 1);
 }
 
-/* Albums */
-.albums {
-  -webkit-animation: color-change-2x 2s linear infinite alternate both;
-  animation: color-change-2x 2s linear infinite alternate both;
-  min-height: 100vh;
+.animate {
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
 }
 
-.albums h1 {
-  color: white;
-  margin-top: 50px;
-  margin-bottom: 5px;
-  display: inline-block;
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
-.albums div.col {
-  height: 6 rem;
-  padding: 3px;
-  flex-grow: 1;
-  flex-shrink: 1;
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
-.card {
-  background-color: #181818;
-  transform: scale(1);
-  transition: background-color 0.3s ease, transform 0.3s ease-in-out;
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
 }
 
-.card:hover {
-  background: #282828;
-  transform: scale(1.05);
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
-.play-btn {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  background-color: #1db954;
-  transform: translateY(-2.5em);
-  right: 27px;
-  opacity: 0;
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
 
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  100% {
+    opacity: 0;
+  }
 }
 
-.card:hover .play-btn {
-  transform: translateY(-3.5em);
-  opacity: 1;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
-}
-
-.play-btn::before {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 3px;
-  border-style: solid;
-  border-width: 7px 0 7px 10px;
-  border-color: transparent transparent transparent #fff;
-  margin: auto;
-}
-
-.card img {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-}
-
-.card + h6 {
-  text-align: center;
-  margin-top: 10px;
-  font-size: medium;
-}
-
-.albums h1 {
-  color: white;
-  margin-top: 50px;
-  margin-bottom: 5px;
-  display: inline-block;
-}
-
-.albums div.col {
-  height: 6 rem;
-  padding: 3px;
-  flex-grow: 1;
-  flex-shrink: 1;
-}
-
-.formDiv {
-  padding-top: 50px;
-  padding-left: 50px;
-  padding-right: 50px;
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
 }
 
 /************footer****************/
@@ -420,9 +362,6 @@ footer i {
   margin: 10px;
 }
 
-footer .fas {
-  cursor: pointer;
-}
 /***************video bar****************/
 footer .fa-random:hover {
   color: #fff;
@@ -458,19 +397,10 @@ footer .fa-volume-up:hover {
 }
 
 .bar-color {
-  background-color: blue;
+  background-color: grey;
 }
 
 .bar-color:hover {
-  background-color: #1db954;
-}
-
-.progress {
-  height: 5px !important;
-  transform: translateY(2px);
-}
-
-.progress-bar {
   background-color: #1db954;
 }
 
@@ -486,6 +416,7 @@ footer .fa-volume-up:hover {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
   opacity: 0;
 }
+
 .middle-align {
   position: absolute;
 
@@ -563,28 +494,28 @@ footer .fa-volume-up:hover {
   display: none;
 }
 
-.checkbox4:checked + label > .hamburger4 > .bar1 {
+.checkbox4:checked+label>.hamburger4>.bar1 {
   top: 13.5px;
   background-color: transparent !important;
 }
 
-.checkbox4:checked + label > .hamburger4 > .bar2 {
+.checkbox4:checked+label>.hamburger4>.bar2 {
   left: 0px;
   width: 24px;
   transform: rotate(45deg);
 }
 
-.checkbox4:checked + label > .hamburger4 > .bar3 {
+.checkbox4:checked+label>.hamburger4>.bar3 {
   left: 0;
   width: 24px;
   transform: rotate(-45deg);
 }
 
-.checkbox4:checked + label > .hamburger4 > .bar4 {
+.checkbox4:checked+label>.hamburger4>.bar4 {
   background-color: transparent !important;
 }
 
-.checkbox4:checked + label > .hamburger4 > .bar5 {
+.checkbox4:checked+label>.hamburger4>.bar5 {
   bottom: 13.5px;
   background-color: transparent !important;
 }
@@ -600,10 +531,6 @@ footer .fa-volume-up:hover {
   margin: 0;
 }
 
-/*************MEDIA QUERY******************/
-@media (max-width: 400) {
-}
-
 @media (max-width: 768px) {
   .hamburger {
     display: block;
@@ -612,13 +539,16 @@ footer .fa-volume-up:hover {
   #sidebar {
     margin-left: -14.5rem;
   }
+
   #sidebar.active {
     margin-left: 0;
   }
+
   #content {
     width: 100%;
     margin: 0;
   }
+
   #content.active {
     margin-left: 14.5rem;
     width: calc(100% - 14.5rem);
@@ -631,67 +561,4 @@ footer .fa-volume-up:hover {
   .hide {
     display: none;
   }
-
-  /*************footer*************/
-
-  .mask {
-    position: absolute;
-    height: 5px;
-    width: 100px;
-    background-color: #282828;
-    z-index: 9999;
-    transition: 0.3s;
-  }
-
-  .fas:hover + .mt-2 .mask {
-    -webkit-transform: translateX(-100px);
-    transform: translateX(-100px);
-    display: block;
-  }
-}
-
-@media (min-width: 68px) {
-  .card h6 {
-    font-size: 10px;
-  }
-
-  h1 {
-    font-size: 30px;
-  }
-}
-
-/* Small devices (tablets, 768px and up) / /
-@media (min-width: 768px) {
-  .card h6 {
-    font-size: 10px;
-  }
-  h2 {
-    font-size: 20px;
-  }
-}
-
-/ / Medium devices (desktops, 992px and up) / /
-@media (min-width: 992px) {
-  .card h6 {
-    font-size: 12px;
-  }
-
-  h2 {
-    font-size: 28px;
-  }
-}
-
-/ / Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-  .card h6 {
-    font-size: 14px;
-  }
-
-  h1 {
-    font-size: 45px;
-  }
-}
-
-.container {
-  background-color: black;
 }

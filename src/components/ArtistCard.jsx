@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Col, Card, Spinner, Alert } from "react-bootstrap";
+import { Card, Spinner, Alert } from "react-bootstrap";
 
 export default class ArtistCard extends Component {
     
@@ -9,7 +9,6 @@ export default class ArtistCard extends Component {
     };
     
     fetch = async () => {
-        this.setState({ loading: true })
 
         try {
             let response = await fetch("https://deezerdevs-deezer.p.rapidapi.com/artist/" + this.props.id, {
@@ -19,17 +18,12 @@ export default class ArtistCard extends Component {
                     "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com"
                 }
             });
-/* .then(response => {
-	console.log(response);
-})
-.catch(err => {
-	console.error(err);
-}); */
+
             
 
         
             let artist = await response.json();
-            //console.log(artist)
+            console.log(artist)
 
             if (response.ok) {
                 setTimeout(() => {

@@ -1,7 +1,6 @@
 body {
   font-family: "Circular Spotify Tx T Bold";
   font-size: 14px;
-  background-color: black;
 }
 
 .vertical-nav {
@@ -690,8 +689,4 @@ footer .fa-volume-up:hover {
   h1 {
     font-size: 45px;
   }
-}
-
-.container {
-  background-color: black;
 }

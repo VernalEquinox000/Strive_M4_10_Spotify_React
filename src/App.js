@@ -17,13 +17,13 @@ function App() {
        exact
        render={(props ) => <Home {...props} />} />
        <Route
-      path="/AlbumPage/:id"
+      path="/AlbumPage/"
       render={(
       props 
       ) => <AlbumPage {...props} />} 
       />
       <Route
-      path="/ArtistPage"
+      path="/ArtistPage:id"
       exact
       render={(
       props 

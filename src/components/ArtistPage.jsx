@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/artist.css"
 import { Container, Row, Col} from 'react-bootstrap';
-import SongCard from "./components/SongCard"
+import SongCard from "./SongCard"
 
 export default class ArtistPage extends Component {
     

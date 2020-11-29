@@ -468,9 +468,9 @@ th > i:hover {
 #jumbotron {
   color: white;
 }
-#jumbotron h1{
-  color: white
-  font-weight:bold;
+#jumbotron h1 {
+  color: white;
+  font-weight: bold;
 }
 #jumbotron > .container {
   min-height: 30vh;

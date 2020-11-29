@@ -49,9 +49,9 @@ export default class SongCard extends Component {
                 ) : (
                     <div>
                         <Card>
-                            <Card.Img variant="top" src={this.state.artist.picture_big} alt={this.state.artist.name} />
+                            <Card.Img variant="top" src={this.state.song.picture_big} alt={this.state.song.title} />
                             <Card.Body>
-                                <Card.Title>{this.state.artist.name}</Card.Title>
+                                <Card.Title>{this.state.song.title}</Card.Title>
                             </Card.Body>
                         </Card>
                     </div>
